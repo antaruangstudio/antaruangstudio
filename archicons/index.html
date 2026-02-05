@@ -244,7 +244,7 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
+    <!-- <script>
         window.addEventListener('load', () => {
             const splash = document.getElementById('splash-screen');
     
@@ -258,6 +258,21 @@
     
             }, 500); // durasi splash (ms)
         });
-    </script>
+    </script> -->
+    <script>
+        const splash = document.getElementById('splash-screen');
+        
+        function hideSplash() {
+            if (!splash) return;
+            splash.classList.add('hidden');
+            setTimeout(() => splash.remove(), 600);
+        }
+        
+        // Hilang cepat kalau DOM siap
+        document.addEventListener('DOMContentLoaded', hideSplash);
+        
+        // Paksa hilang kalau terlalu lama
+        setTimeout(hideSplash, 1500);
+        </script>
 </body>
 </html>
